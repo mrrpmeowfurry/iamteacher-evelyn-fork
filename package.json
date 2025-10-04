@@ -13,7 +13,7 @@
     "bcrypt": "^6.0.0",
     "caniuse-lite": "^1.0.30001733",
     "cookie-parser": "^1.4.7",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.6.1",
     "express": "^4.21.2",
     "history": "^5.3.0",
     "minipass": "^7.0.4",

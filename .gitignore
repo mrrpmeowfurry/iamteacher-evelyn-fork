@@ -35,3 +35,6 @@ userdata*
 
 # log
 logs*
+
+# my curl testing output
+cookies.txt

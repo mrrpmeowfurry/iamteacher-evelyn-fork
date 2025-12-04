@@ -29,8 +29,8 @@ export const loginApi = new Elysia({ prefix: "/api" }).post("/login", async ({ b
     await saveSessions();
 
     if (process.env.DEBUG === "true") {
-      console.log("SETTING COOKIE", sessionId);
-      console.log("cookie before:", cookie.sessionId);
+        console.log("SETTING COOKIE", sessionId);
+        console.log("cookie before:", cookie.sessionId);
     }
 
     cookie.sessionId.value = sessionId

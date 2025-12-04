@@ -6,6 +6,7 @@ import { loginApi } from "./api/loginApi";
 // auth helper
 import { authPlugin } from "./helper/authPlugin";
 import { loadSessions } from "./helper/sessionStore";
+import { logoutApi } from "./api/logoutApi";
 
 await loadSessions();
 
@@ -15,6 +16,7 @@ const app = new Elysia()
   .use(openAiToken)
   .use(userApi)
   .use(loginApi)
+  .use(logoutApi)
   .listen(process.env.PORT || 3000);
   
 

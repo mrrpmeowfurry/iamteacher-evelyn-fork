@@ -34,21 +34,20 @@ Create a `.env` file from the example file and set your API key in there (or che
 ```bash
 OPENAI_API_KEY=<your_openai_api_key>
 DEBUG=<True OR False>
-VITE_ALLOWED_HOSTS=localhost,127.0.0.1
-LOGGING=<True OR False>
+PORT=3000
 // Example
 ```
 
-Running this application locally requires [Node.js](https://nodejs.org/) to be installed. Install dependencies for the application with:
+Running this application locally requires [bun](https://bun.com/) to be installed. Install dependencies for the application with:
 
 ```bash
-npm install
+bun install
 ```
 
 Start the application server with:
 
 ```bash
-npm start
+bun run dev
 ```
 
 The default email is ``demo@demo.com`` and the password is ``demopassword``

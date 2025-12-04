@@ -18,7 +18,9 @@ export async function loadSessions() {
             sessions.set(id, email);
         });
 
-        console.log(`Loaded ${sessions.size} sessions from ${SESSION_FILE}`);
+        if (process.env.DEBUG === "true") {
+            console.log(`Loaded ${sessions.size} sessions from ${SESSION_FILE}`);
+        }
     } catch (error: any) {
         if (error.code === "ENOENT") {
             console.log(`${SESSION_FILE} not found, starting with empty sessions`);
@@ -37,5 +39,7 @@ export async function saveSessions() {
 
     await fs.mkdir("users", { recursive: true });
     await fs.writeFile(SESSION_FILE, JSON.stringify(obj, null, 2), "utf8");
-    console.log(`Saved ${sessions.size} sessions to ${SESSION_FILE}`);
+    if (process.env.DEBUG === "true") {
+        console.log(`Saved ${sessions.size} sessions to ${SESSION_FILE}`);
+    }
 }

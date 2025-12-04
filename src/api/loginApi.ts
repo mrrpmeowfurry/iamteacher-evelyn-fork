@@ -28,8 +28,10 @@ export const loginApi = new Elysia({ prefix: "/api" }).post("/login", async ({ b
     sessions.set(sessionId, email);
     await saveSessions();
 
-    console.log("SETTING COOKIE", sessionId);
-    console.log("cookie before:", cookie.sessionId);
+    if (process.env.DEBUG === "true") {
+      console.log("SETTING COOKIE", sessionId);
+      console.log("cookie before:", cookie.sessionId);
+    }
 
     cookie.sessionId.value = sessionId
     cookie.sessionId.httpOnly = true

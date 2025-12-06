@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "caniuse-lite": "^1.0.30001741",
+    "caniuse-lite": "^1.0.30001754",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.6.1",
     "express": "^4.21.2",

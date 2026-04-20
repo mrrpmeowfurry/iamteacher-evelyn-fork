@@ -96,9 +96,39 @@ body {
 }
 
 .page-title {
+  margin-top: 50px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+.page-title strong {
+  font-size: 20px;
 }
 
+.page-title .in-call {
+  width: 60px;
+  height: 24px;
+  border-radius: 12px;
+  background: #22222280;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.page-title .time {
+  color: white;
+  font-size: 12px;
+}
+
+.page-title .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
 
 .control-button {
   margin-top: 1.5rem;

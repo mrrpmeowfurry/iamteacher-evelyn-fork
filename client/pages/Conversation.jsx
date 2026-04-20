@@ -434,12 +434,28 @@ export default function Conversation() {
     return `${m}:${s}`;
   };
 
+  const getStatusColor = (time) => {
+    if (time < 50) return "#22c55e";
+    if (time <= 150) return "#f59e0b";
+    return "#ef4444";
+  };
+
   return (
     <div className="app-container">
       <div className="scene-wrapper">
         <BackButton />
         <div className="page-title">
           <strong>iAmTeacher - Yesterday&apos;s movie</strong>
+          {isSessionActive && (
+            <div className="in-call">
+              <span
+                className="status-dot"
+                style={{ background: getStatusColor(callDuration) }}
+              ></span>
+
+              <span className="time">{formatDuration(callDuration)}</span>
+            </div>
+          )}
         </div>
         <img src="/assets/tutor_f.png" alt="Tutor Avatar" className="avatar" />
         <DialogueBox aiReply={aiReply} />

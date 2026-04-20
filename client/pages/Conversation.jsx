@@ -3,8 +3,7 @@ import "../css/App.css";
 import Navigation from "../components/Navigation";
 import BackButton from "../components/conversation/BackButton";
 import ControlButton from "../components/conversation/ControlButton";
-import DialogueBox from "../components/conversation/DialogueBox";
-import StatusDisplay from "../components/conversation/StatusDisplay";
+import DialogueBox from "../components/conversation/DialogueBox"; 
 import AlertBox from "../components/conversation/AlertBox";
 import { Translate } from "../languages/TranslationsManager";
 
@@ -434,10 +433,17 @@ export default function Conversation() {
     return `${m}:${s}`;
   };
 
-  const getStatusColor = (time) => {
-    if (time < 50) return "#22c55e";
-    if (time <= 150) return "#f59e0b";
-    return "#ef4444";
+  const getCallHealthColor = () => {
+    const values = [webrtcLatency, openaiApiLatency]
+      .filter(v => v != null);
+
+    if (values.length === 0) return "#6b7280";
+
+    const highest = Math.max(...values);
+
+    if (highest < 100) return "#22c55e";
+    if (highest <= 300) return "#f59e0b";
+    return "#ef4444"; 
   };
 
   return (
@@ -450,7 +456,7 @@ export default function Conversation() {
             <div className="in-call">
               <span
                 className="status-dot"
-                style={{ background: getStatusColor(callDuration) }}
+                style={{ background: getCallHealthColor() }}
               ></span>
 
               <span className="time">{formatDuration(callDuration)}</span>
@@ -464,14 +470,6 @@ export default function Conversation() {
           isSessionActive={isSessionActive}
           startSession={startSession}
           stopSession={stopSession}
-        />
-        <StatusDisplay
-          callDuration={callDuration}
-          webrtcLatency={webrtcLatency}
-          openaiApiLatency={openaiApiLatency}
-          backendApiLatency={backendApiLatency}
-          isSessionActive={isSessionActive}
-          formatDuration={formatDuration}
         />
       </div>
 
